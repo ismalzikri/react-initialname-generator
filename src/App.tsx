@@ -1,6 +1,6 @@
-import { InputComponent } from "./components"
-import styled from "styled-components"
+import { InputComponent, ImageComponent } from "./components"
 import { device } from "./device"
+import styled from "styled-components"
 
 const Container = styled.main `
   max-width: 1170px;
@@ -35,6 +35,7 @@ const Subtitle = styled.span `
 `
 
 const Footer = styled.footer `
+   margin-top: 40px;
    text-align: center;
    font-weight: 500;
    font-size: 14px;
@@ -55,7 +56,7 @@ function App() {
       </Wrapper>
       
       <Wrapper>
-        <img src="" alt="user-initial" />
+        <ImageComponent />
       </Wrapper>
 
       <Footer>created by  ismal zikri.</Footer>

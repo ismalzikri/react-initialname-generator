@@ -1,7 +1,26 @@
-import React from 'react'
-
 import styled from 'styled-components'
 import { device } from '../device'
+
+type InputProps = {
+  value?: string
+  handleChange: (str: string) => void
+}
+
+export const InputComponent = (props: InputProps) => { 
+
+  const { handleChange, value } = props
+
+  return (
+    <>
+      <Input 
+        type="text"
+        placeholder='Jhon doe'
+        onChange={event => handleChange(event.target.value)}
+        value={value}
+      />
+    </>
+  )
+}
 
 const Input = styled.input `
   margin-top:50px;
@@ -21,11 +40,3 @@ const Input = styled.input `
       font-size: 1rem;
     }
 `
-
-export const InputComponent = () => {
-  return (
-    <>
-     <Input type="text" placeholder='Jhon doe' />
-    </>
-  )
-}

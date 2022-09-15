@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { InputComponent, ImageComponent } from "./components"
 import { device } from "./device"
+import { InputComponent, ImageComponent } from "./components"
 import styled from "styled-components"
 
 const Container = styled.main `
@@ -47,13 +47,16 @@ const Footer = styled.footer `
 
 function App() {
 
-  const [name, setName] = useState<string>('')  
+  const [name, setName] = useState<string> ('')  
 
   return (
     <Container>
       <Wrapper>
         <Title>You can just type  your username</Title>
-        <InputComponent value={name} handleChange={(str: string) => setName(str)} />
+        <InputComponent 
+          value={name} 
+          handleChange={(str: string) => setName(str)} 
+        />
       </Wrapper>
       
       <Wrapper>
@@ -64,7 +67,7 @@ function App() {
         <ImageComponent name={name} />
       </Wrapper>
 
-      <Footer>created by  ismal zikri.</Footer>
+      <Footer>Created by  ismal zikri.</Footer>
     </Container>
   )
 }

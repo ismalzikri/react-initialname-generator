@@ -3,9 +3,24 @@ import styled from "styled-components"
 type ImageProps = {
   name: string
 }
+
 export const ImageComponent = (props: ImageProps) => {
 
     const { name } = props
+
+    // generate random background
+
+    const getRandomNumber = (limit: number) => {
+      return Math.floor(Math.random() * limit)
+    }
+
+    const getRandomColor  = () => {
+      const h = getRandomNumber(360)
+      const s = getRandomNumber(100)
+      const l = getRandomNumber(100)
+    
+      return `hsl(${h}deg, ${s}%, ${l}%)`
+    }
 
     // create canvas element
     
@@ -16,12 +31,8 @@ export const ImageComponent = (props: ImageProps) => {
 
     let intials = name?.at(0) ?? ""
     if (name.split(' ').length > 1) {
-      intials += name.split(' ').at(-1)?.at(0)
+      intials += name.split(' ').at(-1)?.at(0) 
     }
-
-    // generate random background ( upcoming )
-
-
 
     // settings form size 
 
@@ -31,16 +42,16 @@ export const ImageComponent = (props: ImageProps) => {
     // draw background & draw text
 
     if (context != undefined) {
-      context.fillStyle = ""
+      context.fillStyle = getRandomColor()
       context.fillRect(0, 0, canvas.width, canvas.height)
 
       context.font = "30px system-ui"
       context.fillStyle = "white"
       context.textAlign = "center"
       context.textBaseline = "middle"
-      context.fillText(intials, canvas.width / 2, canvas.height / 2)
+      context.fillText(intials.toUpperCase(), canvas.width / 2, canvas.height / 2)
     }
-
+    
     return (
       <Wrapimage>
         <img src={canvas.toDataURL()} alt="initial-user" />

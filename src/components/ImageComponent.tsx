@@ -53,16 +53,25 @@ export const ImageComponent = (props: ImageProps) => {
     }
     
     return (
-      <Wrapimage>
+      <Wrapimage href={canvas.toDataURL()} download>
         <img src={canvas.toDataURL()} alt="initial-user" />
+        <button>Download</button>
       </Wrapimage>
     )
 }
 
 
-const Wrapimage = styled.figure`
+const Wrapimage = styled.a`
   margin-top: 5px;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
    img {
      border-radius:50%;
+   }
+   button {
+     border:1px solid #4275f5;
+     margin:25px 10px;
+     font-size: 14px;
    }
 `

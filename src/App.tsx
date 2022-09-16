@@ -41,7 +41,7 @@ const Footer = styled.footer `
    font-weight: 500;
    font-size: 14px;
     @media ${device.md} {
-      font-size: 17px;
+      font-size: 15px;
     }
 `
 
